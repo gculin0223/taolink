@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Logo Concepts | タオリンク</title>
+    <style>
+      :root {
+        --ink: #17201b;
+        --muted: #66736c;
+        --line: #dce5df;
+        --paper: #fbfaf6;
+        --panel: #ffffff;
+        --jade: #15735d;
+        --red: #d94a3f;
+        --gold: #e3aa43;
+        --pink: #f8d7d2;
+        --mint: #dff3e7;
+        --sky: #dceef6;
+        font-family: Inter, "Noto Sans JP", "Hiragino Sans", "Yu Gothic", Meiryo, sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: var(--paper);
+      }
+
+      main {
+        width: min(100%, 1180px);
+        margin: 0 auto;
+        padding: 44px 22px 72px;
+      }
+
+      header {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 24px;
+        margin-bottom: 28px;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 42px;
+        line-height: 1.12;
+      }
+
+      p {
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      a {
+        color: var(--jade);
+        font-weight: 800;
+        text-decoration: none;
+      }
+
+      .note {
+        margin: -10px 0 24px;
+        padding: 14px 16px;
+        border: 1px solid #f1c8c2;
+        border-radius: 10px;
+        background: #fff4f1;
+        color: #6c4b45;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+      }
+
+      .card {
+        min-height: 360px;
+        padding: 24px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: var(--panel);
+        box-shadow: 0 14px 40px rgba(23, 32, 27, 0.08);
+      }
+
+      .preview {
+        min-height: 198px;
+        display: grid;
+        place-items: center;
+        border-radius: 10px;
+        background:
+          linear-gradient(135deg, rgba(223, 243, 231, 0.8), rgba(248, 215, 210, 0.66)),
+          #fff;
+      }
+
+      .card h2 {
+        margin: 18px 0 0;
+        font-size: 22px;
+      }
+
+      .card p {
+        margin: 8px 0 0;
+      }
+
+      .brand-row {
+        margin-top: 18px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: #314139;
+        font-weight: 900;
+      }
+
+      .brand-row small {
+        display: block;
+        margin-top: 2px;
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 600;
+      }
+
+      svg {
+        display: block;
+      }
+
+      .wordmark {
+        font-size: 24px;
+        font-weight: 900;
+      }
+
+      @media (max-width: 920px) {
+        .grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 620px) {
+        main {
+          padding: 32px 16px 52px;
+        }
+
+        header {
+          display: block;
+        }
+
+        h1 {
+          font-size: 32px;
+        }
+
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div>
+          <h1>タオリンク ロゴ案</h1>
+          <p>今の「門」文字マークを置き換えるための、かわいめで商店感のある方向性です。</p>
+        </div>
+        <a href="./index.html">サイトへ戻る</a>
+      </header>
+
+      <p class="note">
+        追加案：日本人に伝わりやすい「任意門」の記憶を借りつつ、既存キャラクターや作品の造形は使わず、
+        ピンクの魔法ドアと中国ショップを組み合わせた独自マークにしています。
+      </p>
+
+      <section class="grid" aria-label="Logo concepts">
+        <article class="card">
+          <div class="preview">
+            <svg width="150" height="150" viewBox="0 0 150 150" role="img" aria-label="Magic shop door logo">
+              <defs>
+                <linearGradient id="magicDoor" x1="39" y1="24" x2="111" y2="126" gradientUnits="userSpaceOnUse">
+                  <stop offset="0" stop-color="#ff9fc8" />
+                  <stop offset="1" stop-color="#e95d8f" />
+                </linearGradient>
+                <linearGradient id="portalGlow" x1="55" y1="45" x2="98" y2="118" gradientUnits="userSpaceOnUse">
+                  <stop offset="0" stop-color="#fff7ec" />
+                  <stop offset="1" stop-color="#dff3e7" />
+                </linearGradient>
+              </defs>
+              <path d="M39 124V56c0-22 15-37 36-37s36 15 36 37v68" fill="url(#magicDoor)" />
+              <path d="M51 123V61c0-15 10-25 24-25s24 10 24 25v62" fill="url(#portalGlow)" />
+              <path d="M51 70h48" stroke="#d94a3f" stroke-width="7" stroke-linecap="round" />
+              <circle cx="88" cy="91" r="5" fill="#e3aa43" />
+              <path d="M61 106h29" stroke="#15735d" stroke-width="6" stroke-linecap="round" />
+              <path d="M115 35l5 10 10 5-10 5-5 10-5-10-10-5 10-5z" fill="#fff7ec" />
+              <path d="M31 88c-14 15-4 31 21 33" fill="none" stroke="#e3aa43" stroke-width="6" stroke-linecap="round" stroke-dasharray="1 10" />
+              <path d="M101 124c24-3 36-17 21-32" fill="none" stroke="#e3aa43" stroke-width="6" stroke-linecap="round" stroke-dasharray="1 10" />
+            </svg>
+          </div>
+          <h2>00 Magic Shop Door / 採用</h2>
+          <p>最接近“任意门”的记忆点：粉色魔法门打开后就是中国店铺，亲切、可爱、容易懂。</p>
+          <div class="brand-row">
+            <svg width="42" height="42" viewBox="0 0 42 42" aria-hidden="true">
+              <rect width="42" height="42" rx="13" fill="#ffe8ef" />
+              <path d="M11 36V16c0-7 5-12 10-12s10 5 10 12v20" fill="#e95d8f" />
+              <path d="M15 36V18c0-4 3-7 6-7s6 3 6 7v18" fill="#fff7ec" />
+              <path d="M15 22h12" stroke="#d94a3f" stroke-width="2.5" stroke-linecap="round" />
+              <circle cx="25" cy="27" r="1.8" fill="#e3aa43" />
+            </svg>
+            <span>タオリンク<small>中国買付・国際配送</small></span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="preview">
+            <svg width="150" height="150" viewBox="0 0 150 150" role="img" aria-label="Shop portal mascot logo">
+              <rect x="35" y="29" width="80" height="96" rx="28" fill="#ff9fc8" />
+              <rect x="49" y="49" width="52" height="76" rx="18" fill="#fff7ec" />
+              <path d="M49 67h52" stroke="#15735d" stroke-width="8" stroke-linecap="round" />
+              <circle cx="90" cy="91" r="4" fill="#d94a3f" />
+              <path d="M60 105c10 8 21 8 31 0" fill="none" stroke="#d94a3f" stroke-width="5" stroke-linecap="round" />
+              <path d="M32 46c10-13 23-21 41-24" fill="none" stroke="#e3aa43" stroke-width="6" stroke-linecap="round" />
+              <path d="M118 100c-8 14-21 23-39 27" fill="none" stroke="#e3aa43" stroke-width="6" stroke-linecap="round" />
+              <path d="M117 28l4 8 8 4-8 4-4 8-4-8-8-4 8-4z" fill="#dff3e7" />
+            </svg>
+          </div>
+          <h2>00B Smile Portal</h2>
+          <p>保留粉色门的直觉，但加了笑脸和商店门楣，更像自己的品牌 mascot。</p>
+          <div class="brand-row">
+            <svg width="42" height="42" viewBox="0 0 42 42" aria-hidden="true">
+              <rect x="8" y="4" width="26" height="34" rx="10" fill="#ff9fc8" />
+              <rect x="13" y="13" width="16" height="25" rx="7" fill="#fff7ec" />
+              <path d="M13 19h16" stroke="#15735d" stroke-width="3" />
+              <path d="M17 30c3 3 5 3 8 0" fill="none" stroke="#d94a3f" stroke-width="2" stroke-linecap="round" />
+            </svg>
+            <span>タオリンク<small>中国買付・国際配送</small></span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="preview">
+            <svg width="150" height="150" viewBox="0 0 150 150" role="img" aria-label="Pocket shop door logo">
+              <rect x="28" y="30" width="94" height="96" rx="28" fill="#15735d" />
+              <rect x="45" y="54" width="60" height="72" rx="16" fill="#fff7ec" />
+              <path d="M45 72h60" stroke="#d94a3f" stroke-width="8" stroke-linecap="round" />
+              <circle cx="92" cy="93" r="4" fill="#15735d" />
+              <path d="M57 46c8-14 28-14 36 0" fill="none" stroke="#e3aa43" stroke-width="7" stroke-linecap="round" />
+              <path d="M116 32l5 10 10 5-10 5-5 10-5-10-10-5 10-5z" fill="#f8d7d2" />
+            </svg>
+          </div>
+          <h2>01 Pocket Door</h2>
+          <p>圆润小门加购物袋把手，最像“任意门 + 商店入口”，可爱但不幼稚。</p>
+          <div class="brand-row">
+            <svg width="42" height="42" viewBox="0 0 42 42" aria-hidden="true">
+              <rect width="42" height="42" rx="12" fill="#15735d" />
+              <rect x="12" y="14" width="18" height="22" rx="5" fill="#fff7ec" />
+              <path d="M12 20h18" stroke="#d94a3f" stroke-width="3" />
+              <circle cx="26" cy="25" r="1.5" fill="#15735d" />
+            </svg>
+            <span>タオリンク<small>中国買付・国際配送</small></span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="preview">
+            <svg width="150" height="150" viewBox="0 0 150 150" role="img" aria-label="Noren shop logo">
+              <rect x="27" y="38" width="96" height="82" rx="22" fill="#fff7ec" stroke="#15735d" stroke-width="8" />
+              <path d="M42 58h66" stroke="#d94a3f" stroke-width="9" stroke-linecap="round" />
+              <path d="M50 60v29c0 12 10 22 22 22h6c12 0 22-10 22-22V60" fill="#dff3e7" />
+              <path d="M67 60v46M83 60v46" stroke="#15735d" stroke-width="5" stroke-linecap="round" />
+              <circle cx="116" cy="42" r="10" fill="#e3aa43" />
+              <path d="M112 42h8M116 38v8" stroke="white" stroke-width="3" stroke-linecap="round" />
+            </svg>
+          </div>
+          <h2>02 Noren Shop</h2>
+          <p>日式暖帘和中国商店色彩结合，比较亲近日本用户，也很有店铺入口感。</p>
+          <div class="brand-row">
+            <svg width="42" height="42" viewBox="0 0 42 42" aria-hidden="true">
+              <rect x="4" y="8" width="34" height="28" rx="10" fill="#fff7ec" stroke="#15735d" stroke-width="3" />
+              <path d="M10 16h22" stroke="#d94a3f" stroke-width="4" stroke-linecap="round" />
+              <path d="M15 18v13M21 18v13M27 18v13" stroke="#15735d" stroke-width="2" stroke-linecap="round" />
+            </svg>
+            <span>タオリンク<small>中国買付・国際配送</small></span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="preview">
+            <svg width="150" height="150" viewBox="0 0 150 150" role="img" aria-label="Parcel portal logo">
+              <circle cx="75" cy="75" r="54" fill="#dff3e7" />
+              <path d="M49 111V59c0-18 12-30 26-30s26 12 26 30v52" fill="#15735d" />
+              <path d="M62 112V65c0-10 6-17 13-17s13 7 13 17v47" fill="#fff7ec" />
+              <path d="M92 76l23 12-23 12-23-12z" fill="#e3aa43" />
+              <path d="M69 88v18l23 12 23-12V88" fill="#f6c36b" />
+              <path d="M92 76v24" stroke="#fff7ec" stroke-width="4" />
+              <path d="M33 48c9-10 21-17 35-20" fill="none" stroke="#d94a3f" stroke-width="6" stroke-linecap="round" />
+              <path d="M112 105c-9 10-21 17-35 20" fill="none" stroke="#d94a3f" stroke-width="6" stroke-linecap="round" />
+            </svg>
+          </div>
+          <h2>03 Parcel Portal</h2>
+          <p>门里飞出包裹，强调“下单后帮你运到日本”，物流感更强。</p>
+          <div class="brand-row">
+            <svg width="42" height="42" viewBox="0 0 42 42" aria-hidden="true">
+              <circle cx="21" cy="21" r="20" fill="#dff3e7" />
+              <path d="M11 34V17c0-8 5-13 10-13s10 5 10 13v17" fill="#15735d" />
+              <path d="M18 27l8 4 8-4-8-4z" fill="#e3aa43" />
+            </svg>
+            <span>タオリンク<small>中国買付・国際配送</small></span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="preview">
+            <svg width="150" height="150" viewBox="0 0 150 150" role="img" aria-label="Smile storefront logo">
+              <rect x="30" y="45" width="90" height="74" rx="20" fill="#15735d" />
+              <path d="M39 55h72l-8-20H47z" fill="#d94a3f" />
+              <path d="M47 35h56l5 13H42z" fill="#f8d7d2" />
+              <rect x="52" y="72" width="46" height="47" rx="14" fill="#fff7ec" />
+              <circle cx="66" cy="92" r="4" fill="#15735d" />
+              <circle cx="84" cy="92" r="4" fill="#15735d" />
+              <path d="M66 103c6 5 12 5 18 0" fill="none" stroke="#d94a3f" stroke-width="4" stroke-linecap="round" />
+            </svg>
+          </div>
+          <h2>04 Smile Store</h2>
+          <p>最可爱的方向。店铺本身有笑脸，适合做小程序图标和社交头像。</p>
+          <div class="brand-row">
+            <svg width="42" height="42" viewBox="0 0 42 42" aria-hidden="true">
+              <rect x="6" y="12" width="30" height="25" rx="8" fill="#15735d" />
+              <path d="M9 15h24l-3-8H12z" fill="#d94a3f" />
+              <rect x="14" y="21" width="14" height="16" rx="5" fill="#fff7ec" />
+              <path d="M17 29c3 3 5 3 8 0" fill="none" stroke="#d94a3f" stroke-width="2" stroke-linecap="round" />
+            </svg>
+            <span>タオリンク<small>中国買付・国際配送</small></span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="preview">
+            <svg width="150" height="150" viewBox="0 0 150 150" role="img" aria-label="Route shop logo">
+              <rect x="38" y="30" width="74" height="92" rx="24" fill="#fff7ec" stroke="#15735d" stroke-width="8" />
+              <path d="M56 54h38" stroke="#d94a3f" stroke-width="8" stroke-linecap="round" />
+              <path d="M62 108V75h26v33" fill="#dff3e7" />
+              <path d="M39 89c-18 2-24 15-10 24 16 10 62 5 83-9 21-15 6-31-16-27" fill="none" stroke="#e3aa43" stroke-width="6" stroke-linecap="round" stroke-dasharray="1 12" />
+              <path d="M106 77l12 4-11 7" fill="none" stroke="#e3aa43" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+          <h2>05 Route Door</h2>
+          <p>门和跨境路线结合，科技感更明显，适合强调“中日物流线路”。</p>
+          <div class="brand-row">
+            <svg width="42" height="42" viewBox="0 0 42 42" aria-hidden="true">
+              <rect x="11" y="5" width="20" height="30" rx="8" fill="#fff7ec" stroke="#15735d" stroke-width="3" />
+              <path d="M15 14h12" stroke="#d94a3f" stroke-width="3" stroke-linecap="round" />
+              <path d="M6 28c7 8 23 8 30-1" fill="none" stroke="#e3aa43" stroke-width="3" stroke-linecap="round" stroke-dasharray="1 5" />
+            </svg>
+            <span>タオリンク<small>中国買付・国際配送</small></span>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="preview">
+            <svg width="150" height="150" viewBox="0 0 150 150" role="img" aria-label="Lucky shop stamp logo">
+              <rect x="29" y="29" width="92" height="92" rx="28" fill="#d94a3f" />
+              <rect x="47" y="53" width="56" height="58" rx="16" fill="#fff7ec" />
+              <path d="M54 55h42l-7-17H61z" fill="#e3aa43" />
+              <path d="M64 82h22" stroke="#15735d" stroke-width="6" stroke-linecap="round" />
+              <path d="M64 96h22" stroke="#15735d" stroke-width="6" stroke-linecap="round" />
+              <path d="M110 31l4 8 8 4-8 4-4 8-4-8-8-4 8-4z" fill="#fff7ec" />
+            </svg>
+          </div>
+          <h2>06 Lucky Stamp</h2>
+          <p>像印章又像店铺图标，更有中国元素。做 App 图标会很醒目。</p>
+          <div class="brand-row">
+            <svg width="42" height="42" viewBox="0 0 42 42" aria-hidden="true">
+              <rect width="42" height="42" rx="13" fill="#d94a3f" />
+              <rect x="13" y="16" width="16" height="19" rx="6" fill="#fff7ec" />
+              <path d="M15 17h12l-2-6h-8z" fill="#e3aa43" />
+              <path d="M17 25h8M17 30h8" stroke="#15735d" stroke-width="2" stroke-linecap="round" />
+            </svg>
+            <span>タオリンク<small>中国買付・国際配送</small></span>
+          </div>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

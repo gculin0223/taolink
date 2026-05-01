@@ -81,9 +81,14 @@ img {
   display: grid;
   place-items: center;
   border-radius: 8px;
-  color: white;
-  background: var(--jade);
-  font-weight: 800;
+  background: #ffe8ef;
+  box-shadow: 0 8px 20px rgba(217, 74, 63, 0.12);
+  overflow: hidden;
+}
+
+.brand-mark svg {
+  width: 42px;
+  height: 42px;
 }
 
 .brand strong,
