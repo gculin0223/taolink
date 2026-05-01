@@ -201,20 +201,35 @@ function renderProducts() {
 }
 
 function renderCart() {
-  cartCount.textContent = state.cart.length;
+  const cartProducts = state.cart
+    .map((item) => ({
+      ...item,
+      product: products.find((product) => product.id === item.id)
+    }))
+    .filter((item) => item.product);
+  const itemCount = cartProducts.reduce((sum, item) => sum + item.quantity, 0);
+  cartCount.textContent = itemCount;
 
-  if (!state.cart.length) {
+  if (!cartProducts.length) {
     cartItems.innerHTML = `<p class="empty">気になる商品を追加すると、概算費用を確認できます。</p>`;
   } else {
-    cartItems.innerHTML = state.cart
+    cartItems.innerHTML = cartProducts
       .map(
-        (product) => `
+        ({ product, quantity }) => `
           <article class="cart-item">
             <img src="${product.image}" alt="${product.title}" />
             <div>
-              <h3>${product.title}</h3>
+              <div class="cart-item-title">
+                <h3>${product.title}</h3>
+                <button type="button" data-cart-remove="${product.id}" aria-label="${product.title}を削除">削除</button>
+              </div>
               <p>${product.shop}</p>
-              <p>${money(product.price)}</p>
+              <p>${money(product.price)} / 点</p>
+              <div class="quantity-control" aria-label="${product.title}の数量">
+                <button type="button" data-cart-dec="${product.id}" aria-label="数量を減らす">−</button>
+                <strong>${quantity}</strong>
+                <button type="button" data-cart-inc="${product.id}" aria-label="数量を増やす">＋</button>
+              </div>
             </div>
           </article>
         `
@@ -222,9 +237,9 @@ function renderCart() {
       .join("");
   }
 
-  const subtotal = state.cart.reduce((sum, product) => sum + product.price, 0);
+  const subtotal = cartProducts.reduce((sum, item) => sum + item.product.price * item.quantity, 0);
   const fee = Math.round(subtotal * 0.08);
-  const shipping = state.cart.length ? 58 + Math.max(0, state.cart.length - 1) * 16 : 0;
+  const shipping = itemCount ? 58 + Math.max(0, itemCount - 1) * 16 : 0;
   const total = subtotal + fee + shipping;
 
   document.querySelector("[data-subtotal]").textContent = money(subtotal);
@@ -246,6 +261,33 @@ function toggleCart(force) {
   cartDrawer.setAttribute("aria-hidden", String(!next));
 }
 
+function addToCart(productId) {
+  const existing = state.cart.find((item) => item.id === productId);
+  if (existing) {
+    existing.quantity += 1;
+  } else {
+    state.cart.push({ id: productId, quantity: 1 });
+  }
+  renderCart();
+  toggleCart(true);
+}
+
+function updateCartQuantity(productId, change) {
+  const existing = state.cart.find((item) => item.id === productId);
+  if (!existing) return;
+
+  existing.quantity += change;
+  if (existing.quantity <= 0) {
+    state.cart = state.cart.filter((item) => item.id !== productId);
+  }
+  renderCart();
+}
+
+function removeFromCart(productId) {
+  state.cart = state.cart.filter((item) => item.id !== productId);
+  renderCart();
+}
+
 document.addEventListener("click", (event) => {
   const categoryButton = event.target.closest("[data-category]");
   if (categoryButton) {
@@ -254,12 +296,22 @@ document.addEventListener("click", (event) => {
 
   const addButton = event.target.closest("[data-add]");
   if (addButton) {
-    const product = products.find((item) => item.id === Number(addButton.dataset.add));
-    if (product) {
-      state.cart.push(product);
-      renderCart();
-      toggleCart(true);
-    }
+    addToCart(Number(addButton.dataset.add));
+  }
+
+  const increaseButton = event.target.closest("[data-cart-inc]");
+  if (increaseButton) {
+    updateCartQuantity(Number(increaseButton.dataset.cartInc), 1);
+  }
+
+  const decreaseButton = event.target.closest("[data-cart-dec]");
+  if (decreaseButton) {
+    updateCartQuantity(Number(decreaseButton.dataset.cartDec), -1);
+  }
+
+  const removeButton = event.target.closest("[data-cart-remove]");
+  if (removeButton) {
+    removeFromCart(Number(removeButton.dataset.cartRemove));
   }
 
   if (event.target.closest("[data-cart-toggle]")) {
