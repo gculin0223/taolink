@@ -75,22 +75,6 @@ img {
   min-width: max-content;
 }
 
-.brand-mark {
-  width: 42px;
-  height: 42px;
-  display: grid;
-  place-items: center;
-  border-radius: 8px;
-  background: #ffe8ef;
-  box-shadow: 0 8px 20px rgba(217, 74, 63, 0.12);
-  overflow: hidden;
-}
-
-.brand-mark svg {
-  width: 42px;
-  height: 42px;
-}
-
 .brand strong,
 .brand small {
   display: block;
