@@ -1,0 +1,14 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/category",
+      "destination": "/category.html"
+    },
+    {
+      "source": "/shop",
+      "destination": "/shop.html"
+    }
+  ]
+}

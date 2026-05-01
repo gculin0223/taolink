@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>China Door | 中国ショップを日本へ</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav">
+        <a class="brand" href="#" aria-label="China Door home">
+          <span class="brand-mark">門</span>
+          <span>
+            <strong>China Door</strong>
+            <small>中国買付・国際配送</small>
+          </span>
+        </a>
+        <div class="nav-links" aria-label="Main navigation">
+          <a href="#shops">ショップ</a>
+          <a href="#categories">カテゴリ</a>
+          <a href="#guide">ご利用ガイド</a>
+          <a href="#support">サポート</a>
+        </div>
+        <button class="cart-button" type="button" data-cart-toggle>
+          <span>カート</span>
+          <strong data-cart-count>0</strong>
+        </button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-media" aria-hidden="true"></div>
+        <div class="hero-content">
+          <p class="eyebrow">中国ローカルショップを日本語で</p>
+          <h1>中国の人気店を、玄関先まで。</h1>
+          <p>
+            アパレル、ペット用品、玩具、食品、雑貨まで。商品代金・代行手数料・国際送料を見える化して、
+            日本から中国のショップへかんたん注文。
+          </p>
+          <form class="search-panel" role="search">
+            <label for="search">商品・ショップを検索</label>
+            <div>
+              <input id="search" type="search" placeholder="例：猫用ベッド、潮玩、茶葉、漢服" data-search />
+              <button type="submit">検索</button>
+            </div>
+          </form>
+          <div class="hero-stats" aria-label="Service highlights">
+            <span><strong>1,200+</strong>掲載商品</span>
+            <span><strong>48h</strong>買付確認</span>
+            <span><strong>3</strong>配送ルート</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="flow-section" id="guide" aria-label="Shopping flow">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">How it works</p>
+            <h2>注文から日本到着まで</h2>
+          </div>
+        </div>
+        <div class="flow-track">
+          <article class="flow-step">
+            <div class="flow-node"><span>🔎</span></div>
+            <small>Step 1</small>
+            <h3>商品を探す</h3>
+            <p>中国EC・実店舗・個人セラーの商品を日本語で確認。</p>
+          </article>
+          <article class="flow-step">
+            <div class="flow-node"><span>💳</span></div>
+            <small>Step 2</small>
+            <h3>買付を依頼</h3>
+            <p>商品代金と代行手数料を支払い、現地スタッフが購入。</p>
+          </article>
+          <article class="flow-step">
+            <div class="flow-node"><span>📦</span></div>
+            <small>Step 3</small>
+            <h3>中国倉庫で確認</h3>
+            <p>到着後に検品、写真確認、同梱、補強梱包を選択。</p>
+          </article>
+          <article class="flow-step">
+            <div class="flow-node"><span>✈</span></div>
+            <small>Step 4</small>
+            <h3>日本へ配送</h3>
+            <p>航空便・標準便・大型便から選び、玄関先まで発送。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-shell" id="categories">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Categories</p>
+            <h2>カテゴリから探す</h2>
+          </div>
+          <button class="text-button" type="button" data-reset>すべて表示</button>
+        </div>
+        <div class="category-grid" data-categories></div>
+      </section>
+
+      <section class="section-shell" id="shops">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Shops</p>
+            <h2>精选中国ショップ</h2>
+          </div>
+          <a class="text-button" href="#support">出店相談</a>
+        </div>
+        <div class="shop-strip">
+          <a class="shop-card" href="./shop.html?shop=shenzhen">
+            <img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?auto=format&fit=crop&w=680&q=80" alt="深圳ガジェット館の店内" />
+            <div>
+              <h3>深圳ガジェット館</h3>
+              <p>スマホ周辺機器、撮影ライト、小型家電</p>
+            </div>
+          </a>
+          <a class="shop-card" href="./shop.html?shop=yiwu">
+            <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=680&q=80" alt="義烏雑貨マーケットの商品" />
+            <div>
+              <h3>義烏セレクト</h3>
+              <p>文具、収納、イベント小物、生活雑貨</p>
+            </div>
+          </a>
+          <a class="shop-card" href="./shop.html?shop=hangzhou">
+            <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=680&q=80" alt="杭州ファッション工房の服" />
+            <div>
+              <h3>杭州ファッション工房</h3>
+              <p>レディース服、バッグ、アクセサリー</p>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <section class="catalog-layout">
+        <aside class="filter-panel" aria-label="Filters">
+          <h2>絞り込み</h2>
+          <label>
+            カテゴリ
+            <select data-filter-category>
+              <option value="all">すべて</option>
+            </select>
+          </label>
+          <label>
+            配送タイプ
+            <select data-filter-shipping>
+              <option value="all">すべて</option>
+              <option value="air">航空便向き</option>
+              <option value="standard">標準便向き</option>
+              <option value="large">大型便向き</option>
+            </select>
+          </label>
+          <div class="fee-box">
+            <h3>料金イメージ</h3>
+            <p>商品代金は中国元で表示し、後ろに日本円の参考換算を併記。代行手数料 8% + 国際送料は倉庫到着後に確定。</p>
+          </div>
+        </aside>
+
+        <section class="products" aria-label="Recommended products">
+          <div class="section-heading compact">
+            <div>
+              <p class="eyebrow">Recommended</p>
+              <h2>おすすめ商品</h2>
+            </div>
+            <p data-result-count></p>
+          </div>
+          <div class="product-grid" data-products></div>
+        </section>
+      </section>
+
+      <section class="logistics" id="support">
+        <div>
+          <p class="eyebrow">Logistics</p>
+          <h2>日本向け配送を前提にした買付代行</h2>
+          <p>
+            中国倉庫で検品・同梱・補強梱包を行い、食品や電池入り商品などは発送可否を事前確認。
+            Demo では配送方法の比較と見積り体験を入れています。
+          </p>
+        </div>
+        <div class="shipping-cards">
+          <article>
+            <h3>ライト航空便</h3>
+            <p>小物・衣類・雑貨向け。目安 5-8 日。</p>
+            <strong>58元〜（約¥1,276）</strong>
+          </article>
+          <article>
+            <h3>スタンダード便</h3>
+            <p>食品以外の一般商品向け。目安 8-14 日。</p>
+            <strong>45元〜（約¥990）</strong>
+          </article>
+          <article>
+            <h3>大型・まとめ便</h3>
+            <p>家具、ペット用品、複数注文の同梱向け。</p>
+            <strong>個別見積</strong>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <aside class="cart-drawer" data-cart-drawer aria-label="Cart drawer" aria-hidden="true">
+      <div class="cart-head">
+        <h2>注文リスト</h2>
+        <button type="button" data-cart-toggle aria-label="Close cart">×</button>
+      </div>
+      <div class="cart-items" data-cart-items></div>
+      <div class="cart-summary">
+        <p><span>商品合計</span><strong data-subtotal>0元（約¥0）</strong></p>
+        <p><span>代行手数料 8%</span><strong data-fee>0元（約¥0）</strong></p>
+        <p><span>概算送料</span><strong data-shipping>0元（約¥0）</strong></p>
+        <p class="total"><span>概算合計</span><strong data-total>0元（約¥0）</strong></p>
+        <button type="button">注文相談へ進む</button>
+      </div>
+    </aside>
+    <div class="scrim" data-cart-toggle data-scrim></div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
