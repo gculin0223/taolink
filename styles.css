@@ -612,12 +612,12 @@ img {
 
 .shipping-cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 12px;
 }
 
 .shipping-cards article {
-  min-height: 190px;
+  min-height: 178px;
   padding: 18px;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -626,6 +626,9 @@ img {
 
 .shipping-cards strong {
   color: var(--red);
+  display: block;
+  margin-top: 10px;
+  line-height: 1.45;
 }
 
 .cart-drawer {
@@ -770,6 +773,72 @@ img {
   padding-top: 12px;
   border-top: 1px solid var(--line);
   font-size: 18px;
+}
+
+.cart-shipping-options {
+  margin: 14px 0;
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.cart-shipping-options h3 {
+  margin: 0 0 10px;
+  font-size: 14px;
+}
+
+.cart-shipping-options > small {
+  display: block;
+  margin-top: 9px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.shipping-option {
+  display: grid;
+  grid-template-columns: 18px 1fr;
+  gap: 9px;
+  align-items: start;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+}
+
+.shipping-option + .shipping-option {
+  margin-top: 8px;
+}
+
+.shipping-option input {
+  margin-top: 3px;
+  accent-color: var(--jade);
+}
+
+.shipping-option strong,
+.shipping-option small {
+  display: block;
+}
+
+.shipping-option strong {
+  font-size: 13px;
+}
+
+.shipping-option small {
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.shipping-option:has(input:checked) {
+  border-color: rgba(21, 115, 93, 0.48);
+  background: var(--mint);
+}
+
+.shipping-option.is-disabled {
+  opacity: 0.48;
+  cursor: not-allowed;
 }
 
 .cart-summary button {

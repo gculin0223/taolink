@@ -48,7 +48,7 @@
           <div class="hero-stats" aria-label="Service highlights">
             <span><strong>1,200+</strong>掲載商品</span>
             <span><strong>48h</strong>買付確認</span>
-            <span><strong>3</strong>配送ルート</span>
+            <span><strong>5</strong>配送ルート</span>
           </div>
         </div>
       </section>
@@ -83,7 +83,7 @@
             <div class="flow-node"><span>✈</span></div>
             <small>Step 4</small>
             <h3>日本へ配送</h3>
-            <p>航空便・標準便・大型便から選び、玄関先まで発送。</p>
+            <p>EMS・食品対応便・特貨・海運から商品に合うルートを選択。</p>
           </article>
         </div>
       </section>
@@ -142,12 +142,12 @@
             </select>
           </label>
           <label>
-            配送タイプ
+            商品属性
             <select data-filter-shipping>
               <option value="all">すべて</option>
-              <option value="air">航空便向き</option>
-              <option value="standard">標準便向き</option>
-              <option value="large">大型便向き</option>
+              <option value="air">普貨・軽量</option>
+              <option value="standard">検品確認あり</option>
+              <option value="large">大型・海運向き</option>
             </select>
           </label>
           <div class="fee-box">
@@ -173,25 +173,35 @@
           <p class="eyebrow">Logistics</p>
           <h2>日本向け配送を前提にした買付代行</h2>
           <p>
-            中国倉庫で検品・同梱・補強梱包を行い、食品や電池入り商品などは発送可否を事前確認。
-            Demo では配送方法の比較と見積り体験を入れています。
+            中国倉庫で検品・同梱・補強梱包を行い、商品属性に合わせて配送ルートを選択。
+            食品、液体、電池入り、大型品は通常 EMS ではなく対応ルートへ自動で案内します。
           </p>
         </div>
         <div class="shipping-cards">
           <article>
-            <h3>ライト航空便</h3>
-            <p>小物・衣類・雑貨向け。目安 5-8 日。</p>
-            <strong>58元〜（約¥1,276）</strong>
+            <h3>上海EMS・快速</h3>
+            <p>衣類、玩具、文具などの普貨向け。目安 3-5 営業日。</p>
+            <strong>首0.5kg 85元 / 続0.5kg 20元</strong>
           </article>
           <article>
-            <h3>スタンダード便</h3>
-            <p>食品以外の一般商品向け。目安 8-14 日。</p>
-            <strong>45元〜（約¥990）</strong>
+            <h3>鄭州EMS・標準</h3>
+            <p>普貨の標準ルート。電池、危険品、刃物、香水など不可。目安 4-7 営業日。</p>
+            <strong>首0.5kg 80元 / 続0.5kg 18元</strong>
           </article>
           <article>
-            <h3>大型・まとめ便</h3>
-            <p>家具、ペット用品、複数注文の同梱向け。</p>
-            <strong>個別見積</strong>
+            <h3>食品対応EMS</h3>
+            <p>茶葉、お菓子、食品系に対応。事前検品後に発送可否を確認。</p>
+            <strong>首0.5kg 80元 / 続0.5kg 18元</strong>
+          </article>
+          <article>
+            <h3>EMS特貨</h3>
+            <p>一部の電池入り・粉末・クリーム系など通常便に乗せにくい商品向け。</p>
+            <strong>首0.5kg 85元 / 続0.5kg 23元</strong>
+          </article>
+          <article>
+            <h3>郵政海運</h3>
+            <p>食品、液体、電池、大型・重めの商品向け。目安 20-30 営業日。</p>
+            <strong>首1kg 110元 / 続1kg 13元</strong>
           </article>
         </div>
       </section>
@@ -206,6 +216,11 @@
       <div class="cart-summary">
         <p><span>商品合計</span><strong data-subtotal>0元（約¥0）</strong></p>
         <p><span>代行手数料 8%</span><strong data-fee>0元（約¥0）</strong></p>
+        <div class="cart-shipping-options">
+          <h3>配送ルート</h3>
+          <div data-shipping-options></div>
+          <small data-shipping-note></small>
+        </div>
         <p><span>概算送料</span><strong data-shipping>0元（約¥0）</strong></p>
         <p class="total"><span>概算合計</span><strong data-total>0元（約¥0）</strong></p>
         <button type="button">注文相談へ進む</button>

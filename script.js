@@ -22,6 +22,8 @@ const products = [
     shop: "広州ペット生活館",
     note: "倉庫でサイズ確認後、大型便見積り",
     price: 198,
+    weight: 2.2,
+    cargoTags: ["normal", "oversized"],
     image: "https://images.unsplash.com/photo-1545249390-6bdfa286032f?auto=format&fit=crop&w=760&q=80"
   },
   {
@@ -32,6 +34,8 @@ const products = [
     shop: "上海潮玩倉庫",
     note: "未開封、同梱向き",
     price: 78,
+    weight: 0.3,
+    cargoTags: ["normal"],
     image: "https://images.unsplash.com/photo-1558060370-d644479cb6f7?auto=format&fit=crop&w=760&q=80"
   },
   {
@@ -42,6 +46,8 @@ const products = [
     shop: "昆明茶葉直送",
     note: "食品可否チェック対象",
     price: 118,
+    weight: 0.6,
+    cargoTags: ["food"],
     image: "https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?auto=format&fit=crop&w=760&q=80"
   },
   {
@@ -52,6 +58,8 @@ const products = [
     shop: "杭州ファッション工房",
     note: "サイズ表を日本語化",
     price: 188,
+    weight: 0.5,
+    cargoTags: ["normal"],
     image: "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?auto=format&fit=crop&w=760&q=80"
   },
   {
@@ -62,6 +70,8 @@ const products = [
     shop: "深圳ガジェット館",
     note: "電池なし、航空便対応",
     price: 158,
+    weight: 0.7,
+    cargoTags: ["normal"],
     image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=760&q=80"
   },
   {
@@ -72,6 +82,8 @@ const products = [
     shop: "義烏セレクト",
     note: "軽量、同梱おすすめ",
     price: 32,
+    weight: 0.2,
+    cargoTags: ["normal"],
     image: "https://images.unsplash.com/photo-1456735190827-d1262f71b8a3?auto=format&fit=crop&w=760&q=80"
   },
   {
@@ -82,6 +94,8 @@ const products = [
     shop: "福建ホームマーケット",
     note: "組立式、標準便向き",
     price: 138,
+    weight: 1.8,
+    cargoTags: ["normal", "oversized"],
     image: "https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=760&q=80"
   },
   {
@@ -92,6 +106,8 @@ const products = [
     shop: "広州ビューティー選品",
     note: "液体なし、検品対応",
     price: 89,
+    weight: 0.4,
+    cargoTags: ["powder"],
     image: "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=760&q=80"
   },
   {
@@ -102,6 +118,8 @@ const products = [
     shop: "江西工芸社",
     note: "割れ物補強梱包推奨",
     price: 218,
+    weight: 0.9,
+    cargoTags: ["normal", "fragile"],
     image: "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?auto=format&fit=crop&w=760&q=80"
   }
 ];
@@ -110,8 +128,67 @@ const state = {
   category: "all",
   shipping: "all",
   query: "",
+  shippingMethod: "standard_ems",
   cart: []
 };
+
+const shippingMethods = [
+  {
+    id: "shanghai_ems",
+    name: "上海EMS・快速",
+    eta: "3-5営業日",
+    firstWeight: 0.5,
+    firstFee: 85,
+    stepWeight: 0.5,
+    stepFee: 20,
+    accepts: ["normal", "fragile"],
+    warning: "普貨向け。液体、粉末、クリーム、電池入り、危険品、刃物は不可。"
+  },
+  {
+    id: "standard_ems",
+    name: "鄭州EMS・標準",
+    eta: "4-7営業日",
+    firstWeight: 0.5,
+    firstFee: 80,
+    stepWeight: 0.5,
+    stepFee: 18,
+    accepts: ["normal", "fragile"],
+    warning: "普貨向け。電池、危険品、刃物、指甲油、自熱鍋、香水は不可。"
+  },
+  {
+    id: "food_ems",
+    name: "食品対応EMS",
+    eta: "5-8営業日",
+    firstWeight: 0.5,
+    firstFee: 80,
+    stepWeight: 0.5,
+    stepFee: 18,
+    accepts: ["normal", "food", "fragile"],
+    warning: "茶葉・お菓子など食品向け。肉類、卵、植物、種子類は検査リスクあり。"
+  },
+  {
+    id: "special_ems",
+    name: "EMS特貨",
+    eta: "4-7営業日",
+    firstWeight: 0.5,
+    firstFee: 85,
+    stepWeight: 0.5,
+    stepFee: 23,
+    accepts: ["normal", "battery", "powder", "cream", "fragile"],
+    warning: "一部の電池入り・粉末・クリーム系に対応。危険品、刃物、香水は不可。"
+  },
+  {
+    id: "sea_mail",
+    name: "郵政海運",
+    eta: "20-30営業日",
+    firstWeight: 1,
+    firstFee: 110,
+    stepWeight: 1,
+    stepFee: 13,
+    accepts: ["normal", "food", "liquid", "battery", "powder", "cream", "fragile", "oversized"],
+    warning: "食品、液体、電池、大型品向け。不泡、実重量計算。時間は長め。"
+  }
+];
 
 const EXCHANGE_RATE_JPY = 22;
 const rmbFormatter = new Intl.NumberFormat("zh-CN", { maximumFractionDigits: 0 });
@@ -130,10 +207,26 @@ const resultCount = document.querySelector("[data-result-count]");
 const cartDrawer = document.querySelector("[data-cart-drawer]");
 const cartItems = document.querySelector("[data-cart-items]");
 const cartCount = document.querySelector("[data-cart-count]");
+const shippingOptions = document.querySelector("[data-shipping-options]");
+const shippingNote = document.querySelector("[data-shipping-note]");
 const scrim = document.querySelector("[data-scrim]");
 
 function money(value) {
   return `${rmbFormatter.format(value)}元（約${jpyFormatter.format(value * EXCHANGE_RATE_JPY)}）`;
+}
+
+function calculateShipping(method, weight) {
+  if (!weight) return 0;
+  const remaining = Math.max(0, weight - method.firstWeight);
+  return method.firstFee + Math.ceil(remaining / method.stepWeight) * method.stepFee;
+}
+
+function cartTags(cartProducts) {
+  return [...new Set(cartProducts.flatMap((item) => item.product.cargoTags ?? ["normal"]))];
+}
+
+function methodAvailable(method, tags) {
+  return tags.every((tag) => method.accepts.includes(tag));
 }
 
 function renderCategories() {
@@ -208,6 +301,13 @@ function renderCart() {
     }))
     .filter((item) => item.product);
   const itemCount = cartProducts.reduce((sum, item) => sum + item.quantity, 0);
+  const totalWeight = cartProducts.reduce((sum, item) => sum + item.product.weight * item.quantity, 0);
+  const tags = cartTags(cartProducts);
+  const availableMethods = shippingMethods.filter((method) => methodAvailable(method, tags));
+  if (cartProducts.length && !availableMethods.some((method) => method.id === state.shippingMethod)) {
+    state.shippingMethod = availableMethods[0]?.id ?? "sea_mail";
+  }
+  const selectedMethod = shippingMethods.find((method) => method.id === state.shippingMethod) ?? shippingMethods[1];
   cartCount.textContent = itemCount;
 
   if (!cartProducts.length) {
@@ -239,8 +339,27 @@ function renderCart() {
 
   const subtotal = cartProducts.reduce((sum, item) => sum + item.product.price * item.quantity, 0);
   const fee = Math.round(subtotal * 0.08);
-  const shipping = itemCount ? 58 + Math.max(0, itemCount - 1) * 16 : 0;
+  const shipping = calculateShipping(selectedMethod, totalWeight);
   const total = subtotal + fee + shipping;
+
+  shippingOptions.innerHTML = shippingMethods
+    .map((method) => {
+      const isAvailable = methodAvailable(method, tags);
+      const estimate = calculateShipping(method, totalWeight);
+      return `
+        <label class="shipping-option ${!isAvailable ? "is-disabled" : ""}">
+          <input type="radio" name="shipping-method" value="${method.id}" ${method.id === state.shippingMethod ? "checked" : ""} ${!isAvailable || !cartProducts.length ? "disabled" : ""} />
+          <span>
+            <strong>${method.name}</strong>
+            <small>${method.eta} · ${cartProducts.length ? money(estimate) : "商品追加後に見積"}</small>
+          </span>
+        </label>
+      `;
+    })
+    .join("");
+  shippingNote.textContent = cartProducts.length
+    ? `${selectedMethod.warning} 概算重量 ${totalWeight.toFixed(1)}kg。倉庫到着後に実重量で確定します。`
+    : "商品を追加すると、内容に合う配送ルートを選べます。";
 
   document.querySelector("[data-subtotal]").textContent = money(subtotal);
   document.querySelector("[data-fee]").textContent = money(fee);
@@ -327,6 +446,13 @@ document.addEventListener("click", (event) => {
     searchInput.value = "";
     renderCategories();
     renderProducts();
+  }
+});
+
+shippingOptions.addEventListener("change", (event) => {
+  if (event.target.matches('input[name="shipping-method"]')) {
+    state.shippingMethod = event.target.value;
+    renderCart();
   }
 });
 
